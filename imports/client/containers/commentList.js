@@ -14,7 +14,7 @@ class CommentList extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     let comment = ReactDOM.findDOMNode(this.refs.textInput).value
-    
+
     Meteor.call('comments.insert', comment)    
   }
 	render() {
@@ -48,6 +48,7 @@ CommentList.propTypes = {
   currentUser: PropTypes.object
 }
 export default createContainer(()=>{
+  Meteor.subscribe('comments')
 	return {
 		comments: CommentsCollection.find({}).fetch(), //fetch suscribe a la lista
     currentUser: Meteor.user()
