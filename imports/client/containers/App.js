@@ -27,7 +27,7 @@ class App extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className="ui container">
 				<AccountsUiWrapper />
 				{ this.props.currentUser ? 
 					<div>				
@@ -35,9 +35,9 @@ class App extends Component {
 						<Messages messages={this.props.messages}/>			
 						<Listings 
 						onCreateChannel={this.createChannel.bind(this)}							
-						channels={this.props.channels}/> 
-						<ProfileModal />
+						channels={this.props.channels}/> 						
 						<Footer onSendMessage={this.sendMessage.bind(this)} />
+						<ProfileModal />
 					</div>
 					: ''
 				}
