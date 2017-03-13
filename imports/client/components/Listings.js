@@ -21,11 +21,14 @@ export default class Listings extends Component {
 		},this);
 		return (
 			<div>
-				{channels}
-				<form onSubmit={this.handleSubmitChannel.bind(this)}>
-					<input type="text" ref="inputChannel" placeholder="nuevo canal" />
-					<input type="submit" value="Nuevo Canal" />
-				</form>		
+				<div className="ui bottom attached tabular menu">
+					{channels}
+					<div className="right menu">
+						<form className="ui form" onSubmit={this.handleSubmitChannel.bind(this)}>
+							<input type="text" ref="inputChannel" placeholder="nuevo canal" />							
+						</form>		
+					</div>
+				</div>
 			</div>
 		)
 	}	

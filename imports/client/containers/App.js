@@ -32,10 +32,13 @@ class App extends Component {
 				{ this.props.currentUser ? 
 					<div>				
 						<Header />
-						<Messages messages={this.props.messages}/>			
-						<Listings 
-						onCreateChannel={this.createChannel.bind(this)}							
-						channels={this.props.channels}/> 						
+						<div className="ui container">							
+							<Messages messages={this.props.messages}/>						
+							<Listings 
+								onCreateChannel={this.createChannel.bind(this)}							
+								channels={this.props.channels}/>
+							
+						</div>
 						<Footer onSendMessage={this.sendMessage.bind(this)} />
 						<ProfileModal />
 					</div>
