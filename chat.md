@@ -1,0 +1,11 @@
+-- Components
+---- AccountsUiWrapper
+---- Channel  // canal
+---- Footer // input
+---- Header // nombre de usuario
+---- Listings // muchos canales
+---- Message  
+---- Messages
+---- ProfileModal // perfil de usuario
+-- Containers
+---- App // todos los componentes
