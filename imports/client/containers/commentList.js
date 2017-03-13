@@ -14,10 +14,8 @@ class CommentList extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     let comment = ReactDOM.findDOMNode(this.refs.textInput).value
-
-    CommentsCollection.insert({
-      comment
-    })        
+    
+    Meteor.call('comments.insert', comment)    
   }
 	render() {
 
@@ -28,16 +26,14 @@ class CommentList extends React.Component {
 			<div>       
          <AccountsUiWrapper /> 
          {
-         
-         
-             this.props.currentUser ?
-              <div>
-                 <form onSubmit={this.handleSubmit.bind(this)} action="">
-                   <input ref='textInput' type="text"/>
-                   <input type="submit" value="Guardar" />
-                 </form>
-                 { commentList }
-              </div>
+          this.props.currentUser ?
+          <div>
+             <form onSubmit={this.handleSubmit.bind(this)} action="">
+               <input ref='textInput' type="text"/>
+               <input type="submit" value="Guardar" />
+             </form>
+             { commentList }
+          </div>
            : '' 
          }  
 			   
