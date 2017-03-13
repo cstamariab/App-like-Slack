@@ -1,10 +1,11 @@
-import Reac , { Component } from 'react'
+import React , { Component } from 'react'
 
 export default class Message extends Component {
 	render() {
 		return (
 			<div>
-				Hola
+				<h2>{this.props.user}</h2>
+				<p>{this.props.message}</p>
 			</div>
 		)
 	}	

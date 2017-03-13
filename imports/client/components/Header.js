@@ -1,10 +1,12 @@
-import Reac , { Component } from 'react'
+import React , { Component } from 'react'
 
 export default class Header extends Component {
 	render() {
 		return (
 			<div>
-				Hola
+				<div>
+					<h1>Usuario</h1>
+				</div>
 			</div>
 		)
 	}	

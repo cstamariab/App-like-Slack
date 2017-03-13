@@ -1,1 +1,2 @@
-import  '../imports/collections/comments'
+import  '../imports/collections/channels'
+import  '../imports/collections/messages'

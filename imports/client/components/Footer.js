@@ -1,10 +1,12 @@
-import Reac , { Component } from 'react'
+import React , { Component } from 'react'
 
 export default class Footer extends Component {
 	render() {
 		return (
 			<div>
-				Hola
+				<form >
+					<input ref="inputMessage" type="text" placeholder="Footer message"/>
+				</form>
 			</div>
 		)
 	}	

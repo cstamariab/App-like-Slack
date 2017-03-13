@@ -1,10 +1,16 @@
-import Reac , { Component } from 'react'
-
+import React , { Component } from 'react'
+import Message from './Message'
 export default class Messages extends Component {
 	render() {
+		let message = {
+			user: "Usuario",
+			message: "EL mensaje"
+		}
 		return (
 			<div>
-				Hola
+				<Message user={message.user} message={message.message} />
+				<Message user={message.user} message={message.message} />
+			    <Message user={message.user} message={message.message} />
 			</div>
 		)
 	}	

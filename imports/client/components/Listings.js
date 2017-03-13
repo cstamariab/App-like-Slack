@@ -1,10 +1,13 @@
-import Reac , { Component } from 'react'
-
+import React , { Component } from 'react'
+import Channel from './Channel'
 export default class Listings extends Component {
 	render() {
+		let channel_name = "channel"
 		return (
 			<div>
-				Hola
+				<Channel name={channel_name} />
+				<Channel name={channel_name} />
+				<Channel name={channel_name} />				
 			</div>
 		)
 	}	
