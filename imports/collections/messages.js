@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo'
 import { Meteor } from 'meteor/meteor'
+import { check }  from 'meteor/check'
 
 export const MessageCollection = new Mongo.Collection('messages')
 
@@ -9,3 +10,14 @@ if (Meteor.isServer) {
 		return (MessageCollection.find({}))
 	})
 }
+Meteor.methods({
+	'message.insert'(message,channel) {
+		check(message , String)
+
+		MessageCollection.insert({
+			user: Meteor.users.findOne(this.userId).username ,
+			message,
+			channel
+		})
+	}
+});

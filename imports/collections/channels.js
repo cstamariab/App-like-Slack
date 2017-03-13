@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo'
 import { Meteor } from 'meteor/meteor'
+import { check }  from 'meteor/check'
 
 export const ChannelsCollection = new Mongo.Collection('channels')
 
@@ -9,3 +10,15 @@ if (Meteor.isServer) {
 		return (ChannelsCollection.find({}))
 	})
 }
+Meteor.methods({
+	'channel.insert'(channel) {
+		check(channel , String)
+
+		if (!this.userId)
+			throw new Meteor.Error('no autorizado')
+		
+		ChannelsCollection.insert({
+			channel
+		})
+	}
+});

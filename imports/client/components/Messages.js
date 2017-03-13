@@ -2,15 +2,13 @@ import React , { Component } from 'react'
 import Message from './Message'
 export default class Messages extends Component {
 	render() {
-		let message = {
-			user: "Usuario",
-			message: "EL mensaje"
-		}
+		let messages = this.props.messages.map(function (message) {
+			return(<Message key={message._id} user={message.user} message={message.message} />)
+		});
+		
 		return (
-			<div>
-				<Message user={message.user} message={message.message} />
-				<Message user={message.user} message={message.message} />
-			    <Message user={message.user} message={message.message} />
+			<div>				
+				{messages}
 			</div>
 		)
 	}	
