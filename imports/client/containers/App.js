@@ -27,20 +27,27 @@ class App extends Component {
 	render() {
 
 		return (
-			<div className="ui container">
-				<AccountsUiWrapper />
+			<div className="ui relaxed grid container">
+				<div className="column">
+					<AccountsUiWrapper />
+				</div>
 				{ this.props.currentUser ? 
-					<div>				
-						<Header />
-						<div className="ui container">							
-							<Messages messages={this.props.messages}/>						
-							<Listings 
-								onCreateChannel={this.createChannel.bind(this)}							
-								channels={this.props.channels}/>
-							
+					<div>			
+						<div className='twelve wide column'>
+							<Header user={this.props.currentUser.username} />
 						</div>
-						<Footer onSendMessage={this.sendMessage.bind(this)} />
-						<ProfileModal />
+						<div className='column'>
+							<div className="ui container">							
+								<Messages messages={this.props.messages}/>						
+								<Listings 
+									onCreateChannel={this.createChannel.bind(this)}							
+									channels={this.props.channels}/>								
+							</div>
+						</div>							
+						<div className='column'>
+							<Footer onSendMessage={this.sendMessage.bind(this)} />							
+						</div>							
+						<ProfileModal />					
 					</div>
 					: ''
 				}

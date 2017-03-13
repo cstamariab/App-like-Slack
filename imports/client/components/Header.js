@@ -3,9 +3,11 @@ import React , { Component } from 'react'
 export default class Header extends Component {
 	render() {
 		return (
-			<div>
-				<div>
-					<h1>Usuario</h1>
+			<div className="ui inverted segment">
+				<div className="ui inverted secondary menu">
+					<div className="active item">
+						<h1>{this.props.user }</h1>
+					</div>
 				</div>
 			</div>
 		)
