@@ -37,30 +37,29 @@ class App extends Component {
 			if(err) {
 				console.log(err)
 			}			
-			console.log(res)		
+			Meteor.call('message.update' , res.url)		
 		})
 	}
 	render() {
 
 		return (
-			<div className="ui relaxed grid container">
-				<div className="column">
+			<div className="ui segments">
+				<div className="ui segment">
 					<AccountsUiWrapper />
 				</div>
 				{ this.props.currentUser ? 
 					<div>			
-						<div className='twelve wide column'>
+						<div className='ui segment'>
 							<Header onModalClick={this.showModal.bind(this)} user={this.props.currentUser.username} />
 						</div>
-						<div className='column'>
-							<div className="ui container">							
-								<Messages messages={this.props.messages}/>						
-								<Listings 
-									onCreateChannel={this.createChannel.bind(this)}							
-									channels={this.props.channels}/>								
-							</div>
+						<div className='ui segmentv twelve'>													
+							<Messages messages={this.props.messages}/>						
+							<Listings 
+								onCreateChannel={this.createChannel.bind(this)}							
+								channels={this.props.channels}/>							
+							
 						</div>							
-						<div className='column'>
+						<div className='ui segment'>
 							<Footer onSendMessage={this.sendMessage.bind(this)} />							
 						</div>							
 						<ProfileModal onInsertImage={this.insertImage.bind(this)} ref='modalIgnite' user={this.props.currentUser.username}/>					

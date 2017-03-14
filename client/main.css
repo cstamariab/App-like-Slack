@@ -1,1 +1,11 @@
 /* CSS declarations go here */
+
+.messages__message-list {
+	height: 40vh;
+	overflow-y:scroll;
+	white-space: nowrap;
+}
+
+.channels__channel-list {
+	overflow-x :scroll;
+}

@@ -21,13 +21,13 @@ export default class Listings extends Component {
 		},this);
 		return (
 			<div>
-				<div className="ui bottom attached tabular menu">
-					{channels}
-					<div className="right menu">
-						<form className="ui form" onSubmit={this.handleSubmitChannel.bind(this)}>
-							<input type="text" ref="inputChannel" placeholder="nuevo canal" />							
-						</form>		
-					</div>
+				<div className="channels__channel-list ui bottom attached tabular menu">
+					{channels}					
+				</div>
+				<div className="right menu">
+					<form className="ui form" onSubmit={this.handleSubmitChannel.bind(this)}>
+						<input type="text" ref="inputChannel" placeholder="nuevo canal" />							
+					</form>		
 				</div>
 			</div>
 		)
