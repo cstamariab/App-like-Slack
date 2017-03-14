@@ -2,6 +2,9 @@ import React , { Component , PropTypes} from 'react'
 import { createContainer } from 'meteor/react-meteor-data'
 import {Session} from 'meteor/session'
 
+import ReactDOM from 'react-dom'
+import $ from 'jquery'
+
 import AccountsUiWrapper from '../components/accountsUiWrapper'
 import Header from '../components/Header'
 import Listings from '../components/Listings'
@@ -23,7 +26,10 @@ class App extends Component {
 	createChannel(channel){
 		Meteor.call('channel.insert', channel)
 	}
-
+	showModal(){
+		const userModal = ReactDOM.findDOMNode(this.refs.modalIgnite)
+		$(userModal).modal('show')
+	}
 	render() {
 
 		return (
@@ -34,7 +40,7 @@ class App extends Component {
 				{ this.props.currentUser ? 
 					<div>			
 						<div className='twelve wide column'>
-							<Header user={this.props.currentUser.username} />
+							<Header onModalClick={this.showModal.bind(this)} user={this.props.currentUser.username} />
 						</div>
 						<div className='column'>
 							<div className="ui container">							
@@ -47,7 +53,7 @@ class App extends Component {
 						<div className='column'>
 							<Footer onSendMessage={this.sendMessage.bind(this)} />							
 						</div>							
-						<ProfileModal />					
+						<ProfileModal ref='modalIgnite' user={this.props.currentUser.username}/>					
 					</div>
 					: ''
 				}

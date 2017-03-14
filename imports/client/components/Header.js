@@ -5,9 +5,9 @@ export default class Header extends Component {
 		return (
 			<div className="ui inverted segment">
 				<div className="ui inverted secondary menu">
-					<div className="active item">
+					<div onClick={this.props.onModalClick} className="active item">
 						<h1>{this.props.user }</h1>
-					</div>
+					</div> 
 				</div>
 			</div>
 		)
