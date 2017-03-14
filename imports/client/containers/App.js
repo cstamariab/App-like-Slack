@@ -15,6 +15,7 @@ import Footer from '../components/Footer'
 import {MessageCollection} from '../../collections/messages'
 import {ChannelsCollection} from '../../collections/channels'
 
+
 class App extends Component {
 	constructor() {
 	  super();	
@@ -29,6 +30,15 @@ class App extends Component {
 	showModal(){
 		const userModal = ReactDOM.findDOMNode(this.refs.modalIgnite)
 		$(userModal).modal('show')
+	}
+	insertImage(info,data){
+		
+		Meteor.call('cloudinary_insert' , info , data ,function (err,res){
+			if(err) {
+				console.log(err)
+			}			
+			console.log(res)		
+		})
 	}
 	render() {
 
@@ -53,7 +63,7 @@ class App extends Component {
 						<div className='column'>
 							<Footer onSendMessage={this.sendMessage.bind(this)} />							
 						</div>							
-						<ProfileModal ref='modalIgnite' user={this.props.currentUser.username}/>					
+						<ProfileModal onInsertImage={this.insertImage.bind(this)} ref='modalIgnite' user={this.props.currentUser.username}/>					
 					</div>
 					: ''
 				}
