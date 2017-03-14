@@ -55,6 +55,7 @@ export default class ProfileModal extends Component {
 						</form>
 					</div>
 				</div>	
+				
 			</div>
 		)
 	}	
